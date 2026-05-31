@@ -33,10 +33,26 @@ filterButtons.forEach((button) => {
 window.addEventListener("scroll", updateProgress, { passive: true });
 window.addEventListener("resize", updateProgress);
 
-if (backgroundVideo) {
+function startBackgroundVideo() {
+  if (!backgroundVideo) {
+    return;
+  }
+
   backgroundVideo.muted = true;
   backgroundVideo.volume = 0;
   backgroundVideo.play().catch(() => {});
+}
+
+if (backgroundVideo) {
+  startBackgroundVideo();
+  backgroundVideo.addEventListener("loadeddata", startBackgroundVideo, { once: true });
+  backgroundVideo.addEventListener("canplay", startBackgroundVideo, { once: true });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+      startBackgroundVideo();
+    }
+  });
+  window.setTimeout(startBackgroundVideo, 600);
 }
 
 updateProgress();
