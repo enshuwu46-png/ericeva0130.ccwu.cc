@@ -58,6 +58,29 @@ button {
   transform-origin: left center;
 }
 
+.site-video-bg,
+.site-video-tint {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.site-video-bg {
+  object-fit: cover;
+  opacity: 0.54;
+  filter: blur(22px) saturate(1.12) contrast(1.04);
+  transform: scale(1.08);
+}
+
+.site-video-tint {
+  background:
+    linear-gradient(90deg, rgba(245, 245, 247, 0.92), rgba(245, 245, 247, 0.56) 52%, rgba(245, 245, 247, 0.3)),
+    linear-gradient(0deg, rgba(245, 245, 247, 0.92), rgba(245, 245, 247, 0.24) 52%, rgba(245, 245, 247, 0.16));
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -65,6 +88,12 @@ button {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: rgba(245, 245, 247, 0.78);
   backdrop-filter: saturate(180%) blur(20px);
+}
+
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 .nav-shell {
@@ -132,30 +161,21 @@ button {
   display: grid;
   align-items: end;
   isolation: isolate;
-  background: #d9d6ce;
-}
-
-.hero-image {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: saturate(1.02) contrast(1.02);
+  background: rgba(245, 245, 247, 0.18);
 }
 
 .hero-scrim {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background:
-    linear-gradient(90deg, rgba(245, 245, 247, 0.9), rgba(245, 245, 247, 0.35) 48%, rgba(245, 245, 247, 0.05)),
-    linear-gradient(0deg, rgba(245, 245, 247, 0.88), rgba(245, 245, 247, 0.03) 42%);
+    linear-gradient(90deg, rgba(245, 245, 247, 0.9), rgba(245, 245, 247, 0.48) 48%, rgba(245, 245, 247, 0.2)),
+    linear-gradient(0deg, rgba(245, 245, 247, 0.9), rgba(245, 245, 247, 0.14) 48%);
 }
 
 .hero-copy {
+  position: relative;
+  z-index: 1;
   width: min(100%, var(--wide));
   margin: 0 auto;
   padding: 104px 22px 70px;
@@ -211,8 +231,9 @@ button {
 }
 
 .intro-band {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid var(--hairline);
+  backdrop-filter: blur(18px) saturate(150%);
 }
 
 .intro-grid {
@@ -576,8 +597,8 @@ button {
 
   .hero-scrim {
     background:
-      linear-gradient(0deg, rgba(245, 245, 247, 0.94), rgba(245, 245, 247, 0.2) 58%),
-      linear-gradient(90deg, rgba(245, 245, 247, 0.7), rgba(245, 245, 247, 0.06));
+      linear-gradient(0deg, rgba(245, 245, 247, 0.96), rgba(245, 245, 247, 0.28) 58%),
+      linear-gradient(90deg, rgba(245, 245, 247, 0.72), rgba(245, 245, 247, 0.14));
   }
 
   .hero-copy {
@@ -636,8 +657,9 @@ button {
     min-height: 76svh;
   }
 
-  .hero-image {
-    object-position: 58% center;
+  .site-video-bg {
+    opacity: 0.48;
+    filter: blur(18px) saturate(1.08) contrast(1.02);
   }
 
   .hero-copy {

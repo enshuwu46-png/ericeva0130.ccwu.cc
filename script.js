@@ -1,4 +1,5 @@
 const progress = document.querySelector(".progress");
+const backgroundVideo = document.querySelector(".site-video-bg");
 const filterButtons = document.querySelectorAll(".filter-pill");
 const posts = document.querySelectorAll(".post-card");
 
@@ -31,4 +32,11 @@ filterButtons.forEach((button) => {
 
 window.addEventListener("scroll", updateProgress, { passive: true });
 window.addEventListener("resize", updateProgress);
+
+if (backgroundVideo) {
+  backgroundVideo.muted = true;
+  backgroundVideo.volume = 0;
+  backgroundVideo.play().catch(() => {});
+}
+
 updateProgress();
