@@ -352,7 +352,29 @@ main,
 }
 
 .story-timeline {
+  position: relative;
+  gap: 0;
+  padding: 12px 0;
+  overflow: hidden;
+  isolation: isolate;
+  border-top: 0;
   border-top-color: rgba(29, 29, 31, 0.18);
+}
+
+.story-timeline::before {
+  content: "";
+  position: absolute;
+  inset: 12px auto 12px 50%;
+  z-index: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(29, 29, 31, 0.2) 9%,
+    rgba(29, 29, 31, 0.2) 91%,
+    transparent
+  );
+  transform: translateX(-50%);
 }
 
 .timeline-item {
@@ -364,13 +386,56 @@ main,
 }
 
 .story-timeline .timeline-item {
-  grid-template-columns: 156px minmax(0, 1fr);
-  align-items: start;
-  gap: 30px;
-  padding: 22px 0;
+  position: relative;
+  z-index: 1;
+  grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+  min-height: 132px;
+  padding: 26px 0;
+  border-bottom: 0;
+  isolation: isolate;
+}
+
+.story-timeline .timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 15px;
+  height: 15px;
+  border: 3px solid var(--bg);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 1px rgba(29, 29, 31, 0.18);
+  transform: translate(-50%, -50%);
+}
+
+.story-timeline .timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(50% - 156px);
+  left: calc(50% - 156px);
+  z-index: 0;
+  height: 1px;
+  background: rgba(29, 29, 31, 0.12);
+  transform: translateY(-50%);
+}
+
+.story-timeline .timeline-item > * {
+  position: relative;
+  z-index: 1;
 }
 
 .story-timeline .timeline-item time {
+  grid-column: 1;
+  justify-self: end;
+  padding: 8px 12px;
+  border: 1px solid rgba(29, 29, 31, 0.1);
+  border-radius: 999px;
+  background: var(--bg);
   color: var(--ink);
   font-size: 16px;
   font-weight: 800;
@@ -380,10 +445,27 @@ main,
 }
 
 .story-timeline .timeline-item p {
-  max-width: 860px;
+  grid-column: 3;
+  justify-self: start;
+  max-width: 500px;
+  padding: 18px 20px;
+  border: 1px solid rgba(29, 29, 31, 0.08);
+  border-radius: var(--radius);
+  background: var(--panel-solid);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.035);
   color: #3a3a3c;
   font-size: clamp(16px, 1.45vw, 19px);
   line-height: 1.58;
+}
+
+.story-timeline .timeline-item:nth-child(even) time {
+  grid-column: 3;
+  justify-self: start;
+}
+
+.story-timeline .timeline-item:nth-child(even) p {
+  grid-column: 1;
+  justify-self: end;
 }
 
 .timeline-item h3,
@@ -468,8 +550,19 @@ main,
   }
 
   .story-timeline .timeline-item {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: minmax(0, 1fr) 54px minmax(0, 1fr);
+    gap: 0;
+    min-height: 126px;
+  }
+
+  .story-timeline .timeline-item p {
+    max-width: 360px;
+    padding: 16px 17px;
+  }
+
+  .story-timeline .timeline-item::after {
+    right: calc(50% - 122px);
+    left: calc(50% - 122px);
   }
 }
 
@@ -533,6 +626,57 @@ main,
 
   .moment-strip {
     grid-template-columns: 1fr;
+  }
+
+  .story-timeline {
+    padding: 4px 0 4px 18px;
+    overflow: visible;
+  }
+
+  .story-timeline::before {
+    inset: 8px auto 8px 8px;
+    transform: none;
+  }
+
+  .story-timeline .timeline-item,
+  .story-timeline .timeline-item:nth-child(even) {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 20px 0 20px 28px;
+  }
+
+  .story-timeline .timeline-item::before {
+    top: 29px;
+    left: 8px;
+    transform: translate(-50%, 0);
+  }
+
+  .story-timeline .timeline-item::after {
+    top: 38px;
+    right: auto;
+    left: 8px;
+    width: 22px;
+    transform: none;
+  }
+
+  .story-timeline .timeline-item time,
+  .story-timeline .timeline-item:nth-child(even) time,
+  .story-timeline .timeline-item p,
+  .story-timeline .timeline-item:nth-child(even) p {
+    grid-column: 1;
+    justify-self: stretch;
+  }
+
+  .story-timeline .timeline-item time,
+  .story-timeline .timeline-item:nth-child(even) time {
+    width: max-content;
+    justify-self: start;
+  }
+
+  .story-timeline .timeline-item p,
+  .story-timeline .timeline-item:nth-child(even) p {
+    max-width: none;
+    margin-top: 8px;
   }
 
   .moment-tile {
