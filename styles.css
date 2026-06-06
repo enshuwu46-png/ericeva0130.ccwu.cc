@@ -293,7 +293,7 @@ main,
 
 .moment-strip {
   display: grid;
-  grid-template-columns: 1.4fr repeat(3, minmax(0, 0.8fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -314,10 +314,6 @@ main,
   height: 100%;
   min-height: 280px;
   object-fit: cover;
-}
-
-.moment-tile.tall {
-  grid-row: span 2;
 }
 
 .moment-visual {
@@ -466,10 +462,6 @@ main,
     grid-template-columns: 1fr 1fr;
   }
 
-  .moment-tile.tall {
-    grid-column: span 2;
-  }
-
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -543,8 +535,7 @@ main,
     grid-template-columns: 1fr;
   }
 
-  .moment-tile,
-  .moment-tile.tall {
+  .moment-tile {
     grid-column: auto;
   }
 
