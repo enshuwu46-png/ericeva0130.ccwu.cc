@@ -431,6 +431,8 @@ main,
 
 .story-timeline .timeline-item time {
   grid-column: 1;
+  grid-row: 1;
+  align-self: center;
   justify-self: end;
   padding: 8px 12px;
   border: 1px solid rgba(29, 29, 31, 0.1);
@@ -446,6 +448,8 @@ main,
 
 .story-timeline .timeline-item p {
   grid-column: 3;
+  grid-row: 1;
+  align-self: center;
   justify-self: start;
   max-width: 500px;
   padding: 18px 20px;
@@ -665,6 +669,16 @@ main,
   .story-timeline .timeline-item:nth-child(even) p {
     grid-column: 1;
     justify-self: stretch;
+  }
+
+  .story-timeline .timeline-item time,
+  .story-timeline .timeline-item:nth-child(even) time {
+    grid-row: 1;
+  }
+
+  .story-timeline .timeline-item p,
+  .story-timeline .timeline-item:nth-child(even) p {
+    grid-row: 2;
   }
 
   .story-timeline .timeline-item time,
