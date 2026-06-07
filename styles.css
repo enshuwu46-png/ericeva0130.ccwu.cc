@@ -68,7 +68,7 @@ button {
   object-fit: cover;
   object-position: center center;
   opacity: 0.72;
-  filter: blur(18px) saturate(1.16) contrast(1.04);
+  filter: blur(10px) saturate(1.14) contrast(1.03);
   transform: scale(1.03);
   pointer-events: none;
 }
@@ -559,7 +559,7 @@ main,
     width: calc(100% + 40px);
     height: calc(100% + 40px);
     opacity: 0.68;
-    filter: blur(16px) saturate(1.12) contrast(1.03);
+    filter: blur(9px) saturate(1.1) contrast(1.02);
   }
 
   .hero-copy {
