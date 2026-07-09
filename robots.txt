@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ericeva0130.ccwu.cc/sitemap.xml
