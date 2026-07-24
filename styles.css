@@ -309,6 +309,44 @@ main,
   font-weight: 600;
 }
 
+.download-products {
+  display: grid;
+  gap: 36px;
+}
+
+.download-product {
+  display: grid;
+  gap: 18px;
+}
+
+.download-product + .download-product {
+  padding-top: 34px;
+  border-top: 1px solid rgba(29, 29, 31, 0.12);
+}
+
+.download-product-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.download-product-heading h3,
+.download-product-heading p {
+  margin: 0;
+}
+
+.download-product-heading h3 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.1;
+}
+
+.download-product-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+}
+
 .download-options {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -418,6 +456,26 @@ main,
 .download-button--windows:hover {
   background: #0842a0;
   box-shadow: 0 5px 12px rgba(11, 87, 208, 0.25);
+}
+
+.download-product--wengucha .download-platform-mark--mac {
+  background: #d9efdf;
+  color: #245c3f;
+}
+
+.download-product--wengucha .download-platform-mark--windows {
+  background: #f7dce5;
+  color: #7d3150;
+}
+
+.download-button--wengucha {
+  background: #2f6b48;
+  box-shadow: 0 2px 4px rgba(47, 107, 72, 0.24);
+}
+
+.download-button--wengucha:hover {
+  background: #245c3f;
+  box-shadow: 0 5px 12px rgba(47, 107, 72, 0.25);
 }
 
 .download-button-icon {
@@ -773,6 +831,12 @@ main,
   .download-option {
     min-height: 0;
     padding: 22px;
+  }
+
+  .download-product-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .download-button {
