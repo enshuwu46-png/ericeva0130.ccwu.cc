@@ -247,6 +247,7 @@ main,
 }
 
 .section-wrap,
+.downloads-band,
 .moments-band {
   width: min(100%, var(--wide));
   margin: 0 auto;
@@ -268,9 +269,166 @@ main,
 }
 
 .nav-shell a:focus-visible,
+.download-button:focus-visible,
 .site-footer a:focus-visible {
   outline: 3px solid rgba(0, 113, 227, 0.32);
   outline-offset: 3px;
+}
+
+.downloads-band {
+  width: 100%;
+  max-width: none;
+  padding-right: max(22px, calc((100vw - var(--wide)) / 2 + 22px));
+  padding-left: max(22px, calc((100vw - var(--wide)) / 2 + 22px));
+  background: #eef3f7;
+  border-top: 1px solid rgba(11, 87, 208, 0.08);
+  border-bottom: 1px solid rgba(29, 29, 31, 0.08);
+}
+
+.downloads-shell {
+  display: grid;
+  gap: 32px;
+}
+
+.downloads-heading {
+  display: grid;
+  gap: 8px;
+}
+
+.downloads-heading h2 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.downloads-heading > p:last-child {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.download-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.download-option {
+  min-width: 0;
+  min-height: 236px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  border: 1px solid rgba(29, 29, 31, 0.1);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(29, 29, 31, 0.06);
+}
+
+.download-platform {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.download-platform-mark {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.download-platform-mark--mac {
+  background: #e8def8;
+  color: #4f378b;
+}
+
+.download-platform-mark--windows {
+  background: #c2e7ff;
+  color: #0842a0;
+}
+
+.download-platform p,
+.download-platform h3,
+.download-platform span {
+  margin: 0;
+}
+
+.download-platform p {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.download-platform h3 {
+  margin-top: 3px;
+  font-size: 23px;
+  line-height: 1.15;
+}
+
+.download-platform div > span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.download-button {
+  min-height: 48px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  background: #6750a4;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(103, 80, 164, 0.24);
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.download-button--windows {
+  background: #0b57d0;
+  box-shadow: 0 2px 4px rgba(11, 87, 208, 0.24);
+}
+
+.download-button:hover {
+  background: #5b4696;
+  box-shadow: 0 5px 12px rgba(103, 80, 164, 0.25);
+  transform: translateY(-1px);
+}
+
+.download-button--windows:hover {
+  background: #0842a0;
+  box-shadow: 0 5px 12px rgba(11, 87, 208, 0.25);
+}
+
+.download-button-icon {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.download-source {
+  margin: -12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .moments-band {
@@ -490,7 +648,17 @@ main,
 
 @media (max-width: 900px) {
   .nav-links {
+    margin-left: auto;
+    gap: 0;
+  }
+
+  .nav-links a:not([href="#downloads"]) {
     display: none;
+  }
+
+  .nav-links a[href="#downloads"] {
+    color: var(--blue);
+    font-weight: 700;
   }
 
   .story-hero {
@@ -509,6 +677,10 @@ main,
   }
 
   .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .download-options {
     grid-template-columns: 1fr;
   }
 
@@ -580,6 +752,7 @@ main,
 
   .intro-grid,
   .section-wrap,
+  .downloads-band,
   .moments-band,
   .site-footer {
     padding-right: 16px;
@@ -587,9 +760,23 @@ main,
   }
 
   .section-wrap,
+  .downloads-band,
   .moments-band {
     padding-top: 70px;
     padding-bottom: 70px;
+  }
+
+  .nav-action {
+    display: none;
+  }
+
+  .download-option {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .download-button {
+    width: 100%;
   }
 
   .friendship-counter {
