@@ -1,5 +1,5 @@
-Contact: https://ericeva0130.de5.net/
+Contact: https://ericeva0130.xyz/
 Expires: 2027-07-09T00:00:00Z
 Preferred-Languages: zh, en
-Canonical: https://ericeva0130.de5.net/.well-known/security.txt
-Policy: https://ericeva0130.de5.net/
+Canonical: https://ericeva0130.xyz/.well-known/security.txt
+Policy: https://ericeva0130.xyz/

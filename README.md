@@ -1,4 +1,4 @@
-# ericeva0130.de5.net
+# ericeva0130.xyz
 
 Apple-inspired static blog for **Bestfriends: Eva Eric**.
 
